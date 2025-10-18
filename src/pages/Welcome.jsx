@@ -24,26 +24,21 @@ export default function Welcome() {
   };
 
   return (
-    <div className="h-screen relative flex flex-col overflow-hidden overflow-x-hidden bg-black">
-      {/* Background video */}
-      <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          src="https://streamable.com/e/eetj0r?autoplay=1&nocontrols=1"
-          allow="autoplay; fullscreen"
-          allowFullScreen
-          className="absolute inset-0 w-full h-full -z-10"
-          style={{
-            border: "none",
-            pointerEvents: "none",
-            transform: "scale(1.25)",
-            transformOrigin: "center center",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-none" />
-      </div>
-
-      {/* Foreground */}
-      <div className="relative z-10 flex flex-col justify-center items-center flex-grow p-6">
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Background Video */}
+      <video
+        src="https://cdn.pixabay.com/video/2020/06/20/42665-432087008_large.mp4"
+        autoPlay
+        loop
+        muted
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50" />
+      
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-center items-center w-full h-full p-6">
         {/* Glow orb behind card */}
         <div className="absolute w-[400px] h-[400px] rounded-full bg-gradient-to-r from-purple-600/30 to-pink-600/30 blur-[120px] animate-pulse" />
 
