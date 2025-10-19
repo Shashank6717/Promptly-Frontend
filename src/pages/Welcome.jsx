@@ -31,6 +31,7 @@ export default function Welcome() {
         autoPlay
         loop
         muted
+        playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
       
@@ -38,35 +39,35 @@ export default function Welcome() {
       <div className="absolute inset-0 bg-black/50" />
       
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center w-full h-full p-6">
+      <div className="relative z-10 flex flex-col justify-center items-center w-full h-full p-4 sm:p-6 overflow-y-auto">
         {/* Glow orb behind card */}
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-gradient-to-r from-purple-600/30 to-pink-600/30 blur-[120px] animate-pulse" />
+        <div className="absolute w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] rounded-full bg-gradient-to-r from-purple-600/30 to-pink-600/30 blur-[120px] animate-pulse" />
 
         {/* Main glass card */}
-        <div className="relative w-full max-w-md mx-auto bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 text-center z-10">
+        <div className="relative w-full max-w-md mx-auto bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-5 sm:p-8 text-center z-10">
           {/* Logo */}
-          <div className="mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-500/90 to-pink-500/90 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg ring-4 ring-white/20 animate-float">
-              <span className="text-3xl">✨</span>
+          <div className="mb-4 sm:mb-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500/90 to-pink-500/90 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg ring-4 ring-white/20 animate-float">
+              <span className="text-2xl sm:text-3xl">✨</span>
             </div>
-            <h1 className="text-3xl font-light text-white tracking-wide">
+            <h1 className="text-2xl sm:text-3xl font-light text-white tracking-wide">
               Welcome to <span className="font-semibold">Promptly</span>
             </h1>
-            <p className="text-white/80 text-sm mt-1">
+            <p className="text-white/80 text-xs sm:text-sm mt-1">
               Your personal prompt diary
             </p>
           </div>
 
           {/* Sign-in button */}
-          <div className="space-y-5">
-            <p className="text-white/90 text-base">
+          <div className="space-y-4 sm:space-y-5">
+            <p className="text-white/90 text-sm sm:text-base">
               Start organizing your AI prompts
             </p>
 
             <button
               onClick={handleGoogleSignIn}
               disabled={isLoading}
-              className={`w-full py-4 px-6 rounded-2xl font-medium flex items-center justify-center gap-3 text-white transition-all duration-300 transform shadow-lg
+              className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-2xl font-medium flex items-center justify-center gap-3 text-white transition-all duration-300 transform shadow-lg
                 ${
                   isLoading
                     ? "bg-gradient-to-r from-purple-400/70 to-pink-400/70 cursor-not-allowed"
@@ -80,7 +81,7 @@ export default function Welcome() {
                 </>
               ) : (
                 <>
-                  <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
                       d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -98,7 +99,7 @@ export default function Welcome() {
                       d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                     />
                   </svg>
-                  <span>Continue with Google</span>
+                  <span className="text-sm sm:text-base">Continue with Google</span>
                 </>
               )}
             </button>
@@ -110,7 +111,7 @@ export default function Welcome() {
         </div>
 
         {/* Feature cards below */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl w-full">
+        <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl w-full px-2">
           {[
             {
               icon: "💭",
@@ -130,15 +131,15 @@ export default function Welcome() {
           ].map((f, i) => (
             <div
               key={i}
-              className="bg-white/10 border border-white/20 backdrop-blur-md rounded-xl p-4 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 group"
+              className="bg-white/10 border border-white/20 backdrop-blur-md rounded-xl p-3 sm:p-4 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 group"
             >
-              <span className="text-2xl mb-2 block transform transition-transform group-hover:-translate-y-1">
+              <span className="text-xl sm:text-2xl mb-1 sm:mb-2 block transform transition-transform group-hover:-translate-y-1">
                 {f.icon}
               </span>
-              <h3 className="text-sm font-medium text-white mb-0.5">
+              <h3 className="text-xs sm:text-sm font-medium text-white mb-0.5">
                 {f.title}
               </h3>
-              <p className="text-xs text-white/70">{f.desc}</p>
+              <p className="text-[10px] sm:text-xs text-white/70">{f.desc}</p>
             </div>
           ))}
         </div>
