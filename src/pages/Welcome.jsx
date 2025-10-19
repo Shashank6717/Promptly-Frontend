@@ -116,12 +116,12 @@ export default function Welcome() {
             {
               icon: "💭",
               title: "Smart Prompts",
-              desc: "Capture & organize ideas",
+              desc: "Auto-summarizes your prompts & responses",
             },
             {
               icon: "🏷️",
               title: "Smart Tags",
-              desc: "Auto-organize with tags",
+              desc: "Organize with custom tags",
             },
             {
               icon: "📚",
